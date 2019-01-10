@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HBTableViewFrameWork: e3801d4c33baff5bc614944a4cccc270e53a52ef
+  HBTableViewFrameWork: dc974f27365e710fc3cddcdd84d0390e45ca68a2
 
 PODFILE CHECKSUM: 6472b9165b16a538a31df9a6570b626fd48892d3
 

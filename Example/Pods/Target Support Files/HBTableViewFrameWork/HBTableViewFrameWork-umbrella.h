@@ -10,6 +10,10 @@
 #endif
 #endif
 
+#import "HBTableViewCell.h"
+#import "HBTableViewDataSource.h"
+#import "HBTableViewSectionViewModel.h"
+#import "NSObject+HBTableDataModel.h"
 
 FOUNDATION_EXPORT double HBTableViewFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HBTableViewFrameWorkVersionString[];

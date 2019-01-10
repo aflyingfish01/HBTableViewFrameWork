@@ -7,12 +7,13 @@
 //
 
 #import "HBAppDelegate.h"
-
+#import "HBViewController.h"
 @implementation HBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HBViewController alloc] init]];
     return YES;
 }
 

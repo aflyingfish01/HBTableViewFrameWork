@@ -1,15 +1,15 @@
 {
   "name": "HBTableViewFrameWork",
   "version": "0.1.0",
-  "summary": "A short description of HBTableViewFrameWork.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "快速搭建表格框架",
+  "description": "快速搭建表格框架",
   "homepage": "https://github.com/hulailin/HBTableViewFrameWork",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "hulailin": "hulailin@touker.com"
+    "hulailin": "hulailin@126.com"
   },
   "source": {
     "git": "https://github.com/hulailin/HBTableViewFrameWork.git",
