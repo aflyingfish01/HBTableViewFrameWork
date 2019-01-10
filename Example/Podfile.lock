@@ -1,0 +1,16 @@
+PODS:
+  - HBTableViewFrameWork (0.1.0)
+
+DEPENDENCIES:
+  - HBTableViewFrameWork (from `../`)
+
+EXTERNAL SOURCES:
+  HBTableViewFrameWork:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HBTableViewFrameWork: e3801d4c33baff5bc614944a4cccc270e53a52ef
+
+PODFILE CHECKSUM: 6472b9165b16a538a31df9a6570b626fd48892d3
+
+COCOAPODS: 1.5.3
