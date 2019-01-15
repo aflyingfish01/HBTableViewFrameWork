@@ -12,6 +12,7 @@
 		4BA04C2821E6ECB900C90DE7 /* HBTestXIBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA04C2221E6ECB800C90DE7 /* HBTestXIBModel.m */; };
 		4BA04C2921E6ECB900C90DE7 /* HBXIBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA04C2421E6ECB900C90DE7 /* HBXIBTableViewCell.m */; };
 		4BA04C2A21E6ECB900C90DE7 /* HBXibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA04C2521E6ECB900C90DE7 /* HBXibViewController.m */; };
+		4BA04CCA21EDC59E00C90DE7 /* HBTableViewListFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA04CC921EDC59E00C90DE7 /* HBTableViewListFrame.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -52,6 +53,9 @@
 		4BA04C2321E6ECB900C90DE7 /* HBTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBTestModel.h; sourceTree = "<group>"; };
 		4BA04C2421E6ECB900C90DE7 /* HBXIBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBXIBTableViewCell.m; sourceTree = "<group>"; };
 		4BA04C2521E6ECB900C90DE7 /* HBXibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBXibViewController.m; sourceTree = "<group>"; };
+		4BA04CC821EDC59E00C90DE7 /* HBTableViewListFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBTableViewListFrame.h; sourceTree = "<group>"; };
+		4BA04CC921EDC59E00C90DE7 /* HBTableViewListFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBTableViewListFrame.m; sourceTree = "<group>"; };
+		4BA04CCB21EDD96100C90DE7 /* HBTableViewBaseModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBTableViewBaseModelProtocol.h; sourceTree = "<group>"; };
 		4FFB3A429B7953165E9B730D /* Pods_HBTableViewFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HBTableViewFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* HBTableViewFrameWork_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HBTableViewFrameWork_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,6 +150,9 @@
 		6003F593195388D20070C39A /* Example for HBTableViewFrameWork */ = {
 			isa = PBXGroup;
 			children = (
+				4BA04CC821EDC59E00C90DE7 /* HBTableViewListFrame.h */,
+				4BA04CC921EDC59E00C90DE7 /* HBTableViewListFrame.m */,
+				4BA04CCB21EDD96100C90DE7 /* HBTableViewBaseModelProtocol.h */,
 				4BA04C2321E6ECB900C90DE7 /* HBTestModel.h */,
 				4BA04C1F21E6ECB800C90DE7 /* HBTestModel.m */,
 				4BA04C2121E6ECB800C90DE7 /* HBTestXIBModel.h */,
@@ -384,6 +391,7 @@
 				6003F5A7195388D20070C39A /* HBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				4BA04C2921E6ECB900C90DE7 /* HBXIBTableViewCell.m in Sources */,
+				4BA04CCA21EDC59E00C90DE7 /* HBTableViewListFrame.m in Sources */,
 				4BA04C2821E6ECB900C90DE7 /* HBTestXIBModel.m in Sources */,
 				4BA04C2721E6ECB900C90DE7 /* HBTestModel.m in Sources */,
 			);

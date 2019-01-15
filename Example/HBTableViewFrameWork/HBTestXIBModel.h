@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HBTestXIBModel : NSObject
 @property(nonatomic, copy) NSString *titleName;
 @property(nonatomic, copy) NSString *detail;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

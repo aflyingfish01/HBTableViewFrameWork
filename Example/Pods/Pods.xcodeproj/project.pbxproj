@@ -11,6 +11,8 @@
 		217A8386720D1BACA91EA331F424E673 /* HBTableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = E23C98159B0BE17D4D350837947ABCB4 /* HBTableViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DE26AD6D273FE98342D92FBD761603D /* HBTableViewFrameWork-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AA167B2ADD9669575FF0E4B8F7824 /* HBTableViewFrameWork-dummy.m */; };
 		4520A1CC915DD360AEECAD7A3C46E82B /* Pods-HBTableViewFrameWork_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 205B148039A174AC83B89E62E10BA448 /* Pods-HBTableViewFrameWork_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BA04CC621EDC55B00C90DE7 /* HBTableViewListFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA04CC421EDC55B00C90DE7 /* HBTableViewListFrame.h */; };
+		4BA04CC721EDC55B00C90DE7 /* HBTableViewListFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA04CC521EDC55B00C90DE7 /* HBTableViewListFrame.m */; };
 		6988FE7F63E76C839844A0911BC34A5B /* HBTableViewSectionViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EDD79E35280E85683E8C93C609729F3 /* HBTableViewSectionViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		785EC01BFF6DD89C9CA8BD7A5195BC62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		8BA8A0BE442C52267AE7711C7BF36502 /* NSObject+HBTableDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48BBB17A933523C1EE1BDF0DC265FC82 /* NSObject+HBTableDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,38 +46,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0132B0BFE4886185E92FF94335408466 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0132B0BFE4886185E92FF94335408466 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		075EE8084243F342CB5D143AAB3239C8 /* Pods-HBTableViewFrameWork_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HBTableViewFrameWork_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1452788CF87BD49E36969424EFEE70DC /* Pods-HBTableViewFrameWork_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HBTableViewFrameWork_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		1E1FC19FB857D1415CAB69F67E3D104D /* HBTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HBTableViewCell.m; path = HBTableViewFrameWork/Classes/HBTableViewCell.m; sourceTree = "<group>"; };
 		205B148039A174AC83B89E62E10BA448 /* Pods-HBTableViewFrameWork_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HBTableViewFrameWork_Example-umbrella.h"; sourceTree = "<group>"; };
 		259A6DF9A150AEC3D4D9B45EC45C2135 /* HBTableViewFrameWork-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HBTableViewFrameWork-prefix.pch"; sourceTree = "<group>"; };
 		25E74E9A73AB79A2948AA86F3D3C3D87 /* HBTableViewFrameWork-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HBTableViewFrameWork-umbrella.h"; sourceTree = "<group>"; };
-		33D5C038B81B3C9BDA99FDDF54479ABB /* Pods_HBTableViewFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HBTableViewFrameWork_Tests.framework; path = "Pods-HBTableViewFrameWork_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D5C038B81B3C9BDA99FDDF54479ABB /* Pods_HBTableViewFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HBTableViewFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36BA6744F329BDFE06C1CF78CF244B30 /* Pods-HBTableViewFrameWork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HBTableViewFrameWork_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3CCCFFF2C28E8EF580969D17830D7E1B /* Pods-HBTableViewFrameWork_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HBTableViewFrameWork_Example-frameworks.sh"; sourceTree = "<group>"; };
 		3D6DB17135F0D9ACC0268EEA1F029B1F /* Pods-HBTableViewFrameWork_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HBTableViewFrameWork_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		48BBB17A933523C1EE1BDF0DC265FC82 /* NSObject+HBTableDataModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+HBTableDataModel.h"; path = "HBTableViewFrameWork/Classes/NSObject+HBTableDataModel.h"; sourceTree = "<group>"; };
+		4BA04CC421EDC55B00C90DE7 /* HBTableViewListFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HBTableViewListFrame.h; path = Example/HBTableViewFrameWork/HBTableViewListFrame.h; sourceTree = "<group>"; };
+		4BA04CC521EDC55B00C90DE7 /* HBTableViewListFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HBTableViewListFrame.m; path = Example/HBTableViewFrameWork/HBTableViewListFrame.m; sourceTree = "<group>"; };
 		538044B220DF05C057F06A0631A51B87 /* HBTableViewFrameWork.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HBTableViewFrameWork.xcconfig; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6EDD79E35280E85683E8C93C609729F3 /* HBTableViewSectionViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HBTableViewSectionViewModel.h; path = HBTableViewFrameWork/Classes/HBTableViewSectionViewModel.h; sourceTree = "<group>"; };
 		6F5F5F95FD41ECA0F18C30B5B8CC5E21 /* Pods-HBTableViewFrameWork_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HBTableViewFrameWork_Example-dummy.m"; sourceTree = "<group>"; };
 		75C4758F4F9CBC3DD61BB40CBC67EEDE /* Pods-HBTableViewFrameWork_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HBTableViewFrameWork_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7609B0EA2DC57F5EBC94E5EBD7DCEF76 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		7609B0EA2DC57F5EBC94E5EBD7DCEF76 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		797260499E172D10D03B0FDBE2650D5B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DFA4F74354DC17676F802BC8D33FCFD /* Pods-HBTableViewFrameWork_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HBTableViewFrameWork_Tests.modulemap"; sourceTree = "<group>"; };
-		8BEB951475C7D26A668F73F01836F6E9 /* HBTableViewFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HBTableViewFrameWork.framework; path = HBTableViewFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8BEB951475C7D26A668F73F01836F6E9 /* HBTableViewFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HBTableViewFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		945519B46936F62127FCFA356FE89A22 /* Pods-HBTableViewFrameWork_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HBTableViewFrameWork_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9632B5329482EE93B6D28E42BF50AF1E /* Pods-HBTableViewFrameWork_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HBTableViewFrameWork_Tests-resources.sh"; sourceTree = "<group>"; };
 		96B2257CB0C775C02F65D37C55CA859B /* NSObject+HBTableDataModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+HBTableDataModel.m"; path = "HBTableViewFrameWork/Classes/NSObject+HBTableDataModel.m"; sourceTree = "<group>"; };
-		9FA785C5482561A10E573CA648586168 /* Pods_HBTableViewFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HBTableViewFrameWork_Example.framework; path = "Pods-HBTableViewFrameWork_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FA785C5482561A10E573CA648586168 /* Pods_HBTableViewFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HBTableViewFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44B07A14C64E7ED7FE3FEDDE0F541A6 /* Pods-HBTableViewFrameWork_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HBTableViewFrameWork_Tests-dummy.m"; sourceTree = "<group>"; };
 		AD7336F0A1FE59AACE7657B6E6436C80 /* HBTableViewDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HBTableViewDataSource.m; path = HBTableViewFrameWork/Classes/HBTableViewDataSource.m; sourceTree = "<group>"; };
 		B53AA167B2ADD9669575FF0E4B8F7824 /* HBTableViewFrameWork-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HBTableViewFrameWork-dummy.m"; sourceTree = "<group>"; };
 		C2900772E93DC632C267C1422CC021BE /* Pods-HBTableViewFrameWork_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HBTableViewFrameWork_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		C3A9D4988523770663EAE3B3A6747B00 /* HBTableViewFrameWork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HBTableViewFrameWork.modulemap; sourceTree = "<group>"; };
-		CF74F05BA195233EBEE1217D1A4C0FF0 /* HBTableViewFrameWork.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = HBTableViewFrameWork.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CF74F05BA195233EBEE1217D1A4C0FF0 /* HBTableViewFrameWork.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = HBTableViewFrameWork.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D607F14C19560AE07E68F3267EFDFDD9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7CD803B49CC388613B9B9958041F49A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC73D426DF2E86F5200D699EBB2FA6B8 /* HBTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HBTableViewCell.h; path = HBTableViewFrameWork/Classes/HBTableViewCell.h; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				96B2257CB0C775C02F65D37C55CA859B /* NSObject+HBTableDataModel.m */,
 				0478F005F5E8215280951FBDE1B3AB87 /* Pod */,
 				35CEDB8C4D5F94BAAEF8C7A7C08653A9 /* Support Files */,
+				4BA04CC421EDC55B00C90DE7 /* HBTableViewListFrame.h */,
+				4BA04CC521EDC55B00C90DE7 /* HBTableViewListFrame.m */,
 			);
 			name = HBTableViewFrameWork;
 			path = ../..;
@@ -275,6 +281,7 @@
 				217A8386720D1BACA91EA331F424E673 /* HBTableViewDataSource.h in Headers */,
 				1492F5637DDC52C0902073A5C5C91408 /* HBTableViewFrameWork-umbrella.h in Headers */,
 				6988FE7F63E76C839844A0911BC34A5B /* HBTableViewSectionViewModel.h in Headers */,
+				4BA04CC621EDC55B00C90DE7 /* HBTableViewListFrame.h in Headers */,
 				8BA8A0BE442C52267AE7711C7BF36502 /* NSObject+HBTableDataModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +380,7 @@
 				3DE26AD6D273FE98342D92FBD761603D /* HBTableViewFrameWork-dummy.m in Sources */,
 				EBC172222B786319F8C137BE7B5CBB94 /* HBTableViewSectionViewModel.m in Sources */,
 				9D38FDBEFB87DC7010E270415234A900 /* NSObject+HBTableDataModel.m in Sources */,
+				4BA04CC721EDC55B00C90DE7 /* HBTableViewListFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,13 @@
 #import "NSObject+HBTableDataModel.h"
 #import "HBTestModel.h"
 #import "HBXibViewController.h"
+#import "HBTableViewListFrame.h"
 @interface HBViewController ()
 @property(strong, nonatomic) UITableView *tableView;
 @property (nonatomic ,strong) NSMutableArray *dataArray;
 
-@property (nonatomic ,strong) HBTableViewDataSource *dataSource;
-
+//@property (nonatomic ,strong) HBTableViewDataSource *dataSource;
+@property(nonatomic, copy) HBTableViewListFrame *tableViewList;
 @end
 
 @implementation HBViewController
@@ -34,8 +35,8 @@
     [self dataArrayFormart];
     
     //绑定代理
-    self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self.dataSource;
+//    self.tableView.dataSource = self.dataSource;
+//    self.tableView.delegate = self.dataSource;
 }
 
 
@@ -55,15 +56,13 @@
 
 - (void)dataArrayFormart{
     NSMutableArray *array = [HBTestModel requestTableDataSource:self.dataArray  rowHeight:50 className:@"UITableViewCell" isNib:NO];
-    
-    self.dataSource = [HBTableViewDataSource dataSourceViewModel:array dataConfigBlock:^(id cell, id model) {
+
+    [self.tableViewList updateListWithModels:array dataConfigBlock:^(id  _Nonnull cell, id  _Nonnull model) {
         UITableViewCell *cellView =(UITableViewCell *)cell;
         HBTestModel *viewModel = (HBTestModel *)model;
         cellView.textLabel.text = viewModel.titleName;
         cellView.detailTextLabel.text = viewModel.detail;
-    } didSelectRowAtIndexPath:^(UITableView *tableView, NSIndexPath *indexPath, id rowData) {
-        NSLog(@"=====分割线========\n%ld行",indexPath.row);
-        //强弱引用
+    } didSelectRowAtIndexPath:^(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath, id  _Nonnull rowData) {
         __weak typeof(self)weakSelf = self;
         
         if (indexPath.row == 0) {
@@ -73,7 +72,6 @@
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
     }];
-    
     
 }
 #pragma mark - getters and setters
@@ -92,4 +90,10 @@
     return _dataArray;
 }
 
+- (HBTableViewListFrame *)tableViewList{
+    if (!_tableViewList) {
+        _tableViewList = [HBTableViewListFrame tableViewListFrame:self.tableView];
+    }
+    return _tableViewList;
+}
 @end

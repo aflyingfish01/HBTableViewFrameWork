@@ -28,6 +28,14 @@ typedef  void(^didSelectRowAtIndexPath)(UITableView *tableView,NSIndexPath *inde
 @interface HBTableViewDataSource : NSObject <UITableViewDataSource,UITableViewDelegate>
 
 
+@property (nonatomic, strong) NSMutableArray *modelViewArray;
+/** 填充数据的block*/
+@property (nonatomic,copy) configCellBlock configBlock;
+
+/** 响应事件*/
+@property (nonatomic ,copy) didSelectRowAtIndexPath didSelectRowAtIndexPath;
+
+
 /** 头部数据源 */
 @property (nonatomic, copy) void(^configSectionHeaderData)(NSInteger section,UIView *view, id sectionHeaderData);
 

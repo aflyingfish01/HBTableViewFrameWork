@@ -12,13 +12,9 @@
 #import "NSObject+HBTableDataModel.h"
 @interface HBTableViewDataSource()
 
-/** 填充数据的block*/
-@property (nonatomic,copy) configCellBlock configBlock;
 
-/** 响应事件*/
-@property (nonatomic ,copy) didSelectRowAtIndexPath didSelectRowAtIndexPath;
 
-@property (nonatomic, strong) NSMutableArray *modelViewArray;
+
 
 @end
 @implementation HBTableViewDataSource
