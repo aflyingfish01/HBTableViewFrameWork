@@ -8,16 +8,15 @@
 
 #import "HBViewController.h"
 #import "HBTableViewDataSource.h"
-#import "NSObject+HBTableDataModel.h"
 #import "HBTestModel.h"
 #import "HBXibViewController.h"
 #import "HBTableViewListFrame.h"
+#import "MJRefresh.h"
 @interface HBViewController ()
 @property(strong, nonatomic) UITableView *tableView;
 @property (nonatomic ,strong) NSMutableArray *dataArray;
 
-//@property (nonatomic ,strong) HBTableViewDataSource *dataSource;
-@property(nonatomic, copy) HBTableViewListFrame *tableViewList;
+ @property(nonatomic, copy) HBTableViewListFrame *tableViewList;
 @end
 
 @implementation HBViewController
@@ -27,16 +26,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"首页";
-    [self.view addSubview:self.tableView];
-    
     [self loadData];
     
-    //转换数据源
+    [self.view addSubview:self.tableView];
+
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        __weak __typeof(self)weakSelf = self;
+        [weakSelf.dataArray addObjectsFromArray:self.dataArray];
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf dataArrayFormart];
+    }];
+//    //转换数据源
     [self dataArrayFormart];
     
-    //绑定代理
-//    self.tableView.dataSource = self.dataSource;
-//    self.tableView.delegate = self.dataSource;
+ 
 }
 
 
@@ -49,31 +53,29 @@
     HBTestModel *test02 = [[HBTestModel alloc] init];
     test02.titleName =@"用xib加载cell";
     test02.detail =@"第二条测试数据副标题";
-    
-    
+ 
     self.dataArray = @[test01,test02].mutableCopy;
+ 
 }
 
 - (void)dataArrayFormart{
-    NSMutableArray *array = [HBTestModel requestTableDataSource:self.dataArray  rowHeight:50 className:@"UITableViewCell" isNib:NO];
-
-    [self.tableViewList updateListWithModels:array dataConfigBlock:^(id  _Nonnull cell, id  _Nonnull model) {
+    [self.tableViewList updateListWithModels:self.dataArray dataConfigBlock:^(id  _Nonnull cell, id  _Nonnull model) {
         UITableViewCell *cellView =(UITableViewCell *)cell;
+        cellView.backgroundColor = [UIColor orangeColor];
         HBTestModel *viewModel = (HBTestModel *)model;
         cellView.textLabel.text = viewModel.titleName;
         cellView.detailTextLabel.text = viewModel.detail;
     } didSelectRowAtIndexPath:^(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath, id  _Nonnull rowData) {
         __weak typeof(self)weakSelf = self;
         
-        if (indexPath.row == 0) {
-            
-        }else if (indexPath.row == 1){
             HBXibViewController *vc = [[HBXibViewController alloc] init];
             [weakSelf.navigationController pushViewController:vc animated:YES];
-        }
+        
     }];
-    
+
 }
+
+
 #pragma mark - getters and setters
 - (UITableView *)tableView {
     if (!_tableView) {

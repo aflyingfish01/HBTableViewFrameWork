@@ -6,13 +6,23 @@
 //  Copyright © 2018 hulailin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+
+#import "HBTableViewSectionModelClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HBTestXIBModel : NSObject
+@interface HBTestXIBModel : HBTableViewCellModelClass
 @property(nonatomic, copy) NSString *titleName;
 @property(nonatomic, copy) NSString *detail;
+
+
+@end
+
+
+@interface HBTestXIBSectionModel : HBTableViewSectionModelClass
+
+@property(nonatomic, copy) NSString *itemName;
+
 
 
 @end

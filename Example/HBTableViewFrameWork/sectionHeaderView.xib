@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="sectionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="566" height="107"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分区标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osw-Sy-LdI">
+                    <rect key="frame" x="15" y="0.0" width="367" height="107"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="367" id="ERH-bX-E5H"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yuc-Zr-vA2">
+                    <rect key="frame" x="505" y="0.0" width="46" height="107"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="n2a-a3-agK"/>
+                    </constraints>
+                    <state key="normal" title="更多"/>
+                    <connections>
+                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="zsT-th-k6V"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="osw-Sy-LdI" secondAttribute="bottom" id="4v6-X4-SUd"/>
+                <constraint firstItem="osw-Sy-LdI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RD7-bH-Rns"/>
+                <constraint firstItem="osw-Sy-LdI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="gDi-3B-eec"/>
+                <constraint firstAttribute="trailing" secondItem="Yuc-Zr-vA2" secondAttribute="trailing" constant="15" id="lWD-qW-O0L"/>
+                <constraint firstAttribute="bottom" secondItem="Yuc-Zr-vA2" secondAttribute="bottom" id="pDm-hA-MIz"/>
+                <constraint firstItem="Yuc-Zr-vA2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zkh-hD-SQg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="title" destination="osw-Sy-LdI" id="pfr-ct-KB4"/>
+            </connections>
+            <point key="canvasLocation" x="-54.399999999999999" y="-121.88905547226388"/>
+        </view>
+    </objects>
+</document>

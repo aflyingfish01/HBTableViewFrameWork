@@ -10,4 +10,15 @@
 
 @implementation HBTestModel
 
+- (NSString *)cellReusable{
+    return @"UITableViewCell";
+}
+
+- (CGFloat)rowHeight{
+    return 100;
+}
+
+- (BOOL)isNib{
+    return NO;
+}
 @end

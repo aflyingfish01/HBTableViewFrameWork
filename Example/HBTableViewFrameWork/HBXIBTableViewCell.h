@@ -6,11 +6,11 @@
 //  Copyright © 2018 hulailin. All rights reserved.
 //
 
-#import "HBTableViewCell.h"
+#import "HBTableViewBaseViewClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HBXIBTableViewCell : HBTableViewCell
+@interface HBXIBTableViewCell : HBTableViewBaseCell
 
 @end
 

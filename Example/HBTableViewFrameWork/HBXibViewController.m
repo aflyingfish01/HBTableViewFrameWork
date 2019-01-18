@@ -7,14 +7,14 @@
 //
 
 #import "HBXibViewController.h"
-#import "HBTableViewDataSource.h"
-#import "NSObject+HBTableDataModel.h"
+#import "HBTableViewListFrame.h"
 #import "HBTestXIBModel.h"
+#import "MJRefresh.h"
 @interface HBXibViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(strong, nonatomic) UITableView *tableView;
 @property (nonatomic ,strong) NSMutableArray *dataArray;
+@property (nonatomic ,strong) HBTableViewListFrame *tableViewListFrame;
 
-@property (nonatomic ,strong) HBTableViewDataSource *dataSource;
 
 @end
 
@@ -26,20 +26,18 @@
     self.title = @"用xib加载tablview";
     
     [self.view addSubview:self.tableView];
-
+    
     [self loadData];
-
-    //转换数据源
-    [self dataArrayFormart];
-
-    //绑定代理
-    self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self.dataSource;
+    
+ 
+    
+ 
 }
 
 
 #pragma mark - private methods(私有方法)
 - (void)loadData{
+    
     HBTestXIBModel *test01 = [[HBTestXIBModel alloc] init];
     test01.titleName =@"用代码加载cell";
     test01.detail =@"第一条测试数据副标题";
@@ -56,22 +54,42 @@
     test04.titleName =@"这是第四条测试数据";
     test04.detail =@"第四条测试数据副标题";
     
- 
-    
     self.dataArray = @[test01,test02,test03,test04 ].mutableCopy;
-}
-
-- (void)dataArrayFormart{
-    NSMutableArray *array = [HBTestXIBModel requestTableDataSource:self.dataArray  rowHeight:150 className:@"HBXIBTableViewCell" isNib:YES ];
     
-    self.dataSource = [HBTableViewDataSource dataSourceViewModel:array dataConfigBlock:^(id cell, id model) {
-        
+    HBTestXIBSectionModel *model = [[HBTestXIBSectionModel alloc] init];
+    model.itemName = @"第0个分区";
+    model.rowArray = self.dataArray;
+ 
+    HBTestXIBSectionModel *model1 = [[HBTestXIBSectionModel alloc] init];
+    model1.itemName = @"第1个分区";
+    model1.rowArray = self.dataArray;
+    
+    HBTestXIBSectionModel *model2 = [[HBTestXIBSectionModel alloc] init];
+    model2.itemName = @"第2个分区";
+    model2.rowArray = self.dataArray;
+    
+//    HBTableViewSectionModelClass *section = [[HBTableViewSectionModelClass alloc] init];
+//    section.rowArray = self.dataArray;
+    
+    [self.tableViewListFrame updateListWithSectionModels:@[model,model1,model2] dataConfigBlock:^(id cell, id model) {
+ 
     } didSelectRowAtIndexPath:^(UITableView *tableView, NSIndexPath *indexPath, id rowData) {
-        NSLog(@"=====分割线========\n%ld行",indexPath.row);
+        NSLog(@"分区 indexPath.secion %ld,行indexPath.row %ld",indexPath.section,indexPath.row);
     }];
     
-    
 }
+
+//- (void)dataArrayFormart{
+//    NSMutableArray *array = [HBTestXIBModel requestTableDataSource:self.dataArray  rowHeight:150 className:@"HBXIBTableViewCell" isNib:YES ];
+//
+//    self.dataSource = [HBTableViewDataSource dataSourceViewModel:array dataConfigBlock:^(id cell, id model) {
+//
+//    } didSelectRowAtIndexPath:^(UITableView *tableView, NSIndexPath *indexPath, id rowData) {
+//        NSLog(@"=====分割线========\n%ld行",indexPath.row);
+//    }];
+//
+//
+//}
 #pragma mark - getters and setters
 - (UITableView *)tableView {
     if (!_tableView) {
@@ -88,4 +106,10 @@
     return _dataArray;
 }
 
+- (HBTableViewListFrame *)tableViewListFrame{
+    if (!_tableViewListFrame) {
+        _tableViewListFrame = [HBTableViewListFrame tableViewListFrame:self.tableView] ;
+    }
+    return _tableViewListFrame;
+}
 @end

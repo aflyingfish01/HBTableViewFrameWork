@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol  HBTableViewBaseModelProtocol <NSObject>
+/**
+ 所有表格类型的模型的协议
+ */
 
 @protocol HBTableViewCellProtocol <NSObject>
 //cell重用标示
@@ -36,6 +39,5 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray <id<HBTableViewCellProtocol>>*rowArray;
 @end
 
-@end
-
+ 
 NS_ASSUME_NONNULL_END
