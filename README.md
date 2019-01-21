@@ -17,30 +17,42 @@ HBTableViewFrameWork is available through [CocoaPods](https://cocoapods.org). To
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'HBTableViewFrameWork'
+pod 'HBTableViewFrameWork', '~> 0.1.3'
 ```
 # HBTableViewFrameWork
 快速搭建tableView
 
 导入
-#import "HBTableViewDataSource.h"
-#import "NSObject+HBTableDataModel.h"
- 
-初始化
-> NSMutableArray *array = [HBTestXIBModel requestTableDataSource:self.dataArray  rowHeight:150 className:@"HBXIBTableViewCell" isNib:YES ];
-    
-    self.dataSource = [HBTableViewDataSource dataSourceViewModel:array dataConfigBlock:^(id cell, id model) {
+数据模型继承HBTableViewCellModelClass
+实现关键3个方法
+- (NSString *)cellReusable{
+    return @"HBShortElvesTableViewCell";
+}
+
+- (CGFloat)rowHeight{
+    return  54.0;
+}
+
+- (BOOL)isNib {
+    return YES;
+}
+
+
+viewcontroller中初始化
+- (HBTableViewListFrame *)tableViewList{
+    if (!_tableViewList) {
+        _tableViewList = [HBTableViewListFrame tableViewListFrame:self.tableView] ;
+    }
+    return _tableViewList;
+}
+
+[self.tableViewList updateListWithModels:self.dataArray dataConfigBlock:^(id  _Nonnull cell, id  _Nonnull model) {
         
-    } didSelectRowAtIndexPath:^(UITableView *tableView, NSIndexPath *indexPath, id rowData) {
-        NSLog(@"=====分割线========\n%ld行",indexPath.row);
+    } didSelectRowAtIndexPath:^(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath, id  _Nonnull rowData) {
+        STRONG_SELF;
+        HBshortElvesModel *model = [self.dataArray safeObjectAtIndex:indexPath.row];
+          [HBHttpTool postSSECode:model.stockCode exchange:model.exchange stockName:model.stockName  followId:nil securityType:model.securityType subType:nil viewController:self];
     }];
-    
-    
-    self.dataArray 是你自身的数据源列表
-    
-    //绑定代理
-    self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self.dataSource;
     
     tableView的代理协议都不需要写了
 
