@@ -39,7 +39,7 @@ pod 'HBTableViewFrameWork', '~> 0.1.3'
 
 
 viewcontroller中初始化
-- (HBTableViewListFrame *)tableViewList{
+.- (HBTableViewListFrame *)tableViewList{
     if (!_tableViewList) {
         _tableViewList = [HBTableViewListFrame tableViewListFrame:self.tableView] ;
     }
