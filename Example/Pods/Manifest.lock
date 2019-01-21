@@ -1,16 +1,23 @@
 PODS:
-  - HBTableViewFrameWork (0.1.0)
+  - HBTableViewFrameWork (0.1.2)
+  - MJRefresh (3.1.15.7)
 
 DEPENDENCIES:
   - HBTableViewFrameWork (from `../`)
+  - MJRefresh (~> 3.1.15.7)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MJRefresh
 
 EXTERNAL SOURCES:
   HBTableViewFrameWork:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HBTableViewFrameWork: dc974f27365e710fc3cddcdd84d0390e45ca68a2
+  HBTableViewFrameWork: 3b6b320eac18cc13646814afcb998b4a78da2a74
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
 
-PODFILE CHECKSUM: 6472b9165b16a538a31df9a6570b626fd48892d3
+PODFILE CHECKSUM: 5ffe661366bbd8fc2c2bbf16fd41eb1dc2f47b58
 
 COCOAPODS: 1.5.3

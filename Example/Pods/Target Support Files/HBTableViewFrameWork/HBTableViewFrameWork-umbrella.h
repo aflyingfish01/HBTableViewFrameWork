@@ -10,10 +10,14 @@
 #endif
 #endif
 
-#import "HBTableViewCell.h"
+#import "HBTableViewBaseViewClass.h"
+#import "HBTableViewBaseViewProtocol.h"
 #import "HBTableViewDataSource.h"
+#import "HBTableViewListFrame.h"
+#import "HBTableViewSectionModelClass.h"
+#import "HBTableViewSectionModelProtocol.h"
 #import "HBTableViewSectionViewModel.h"
-#import "NSObject+HBTableDataModel.h"
+#import "HBTableViewSectionViewModelProtocol.h"
 
 FOUNDATION_EXPORT double HBTableViewFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HBTableViewFrameWorkVersionString[];

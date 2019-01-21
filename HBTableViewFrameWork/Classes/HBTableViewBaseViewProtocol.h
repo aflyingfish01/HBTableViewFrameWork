@@ -7,3 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HBTableViewSectionModelProtocol.h"
+@protocol HBTableViewBaseViewProtocol <NSObject>
+- (void)fillData:(id)data;
+@end
+@protocol HBTableViewBaseCellProtocol <NSObject>
+
+/**
+ 更新cell数据
+
+ @param aData model
+ */
+- (void)updateWithCellData:(id<HBTableViewCellModelProtocol>)aData;
+@end

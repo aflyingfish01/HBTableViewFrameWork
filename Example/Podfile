@@ -4,7 +4,7 @@ platform :ios, '8.0'
 
 target 'HBTableViewFrameWork_Example' do
   pod 'HBTableViewFrameWork', :path => '../'
-
+  pod 'MJRefresh', '~> 3.1.15.7'
   target 'HBTableViewFrameWork_Tests' do
     inherit! :search_paths
 

@@ -8,27 +8,12 @@
 
 #import "HBTableViewDataSource.h"
 #import "HBTableViewSectionViewModel.h"
-#import "HBTableViewCell.h"
-#import "NSObject+HBTableDataModel.h"
+#import "HBTableViewBaseViewProtocol.h"
+#import "HBTableViewBaseViewClass.h"
 @interface HBTableViewDataSource()
-
-
-
-
 
 @end
 @implementation HBTableViewDataSource
-
-+ (instancetype)dataSourceViewModel:(id)dataViewModel dataConfigBlock:(configCellBlock)block{
-    return [self dataSourceViewModel:dataViewModel dataConfigBlock:block didSelectRowAtIndexPath:nil];
-}
-+ (instancetype)dataSourceViewModel:(id )dataViewModel dataConfigBlock:(configCellBlock)block didSelectRowAtIndexPath:(didSelectRowAtIndexPath)didSelectRowAtIndexPath{
-    HBTableViewDataSource *dataSource= [[HBTableViewDataSource alloc]init];
-    dataSource.modelViewArray = dataViewModel;
-    dataSource.configBlock = block;
-    dataSource.didSelectRowAtIndexPath = didSelectRowAtIndexPath;
-    return dataSource;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.modelViewArray) {
@@ -39,40 +24,41 @@
 
 #pragma mark - tableViewDelegate tableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    HBTableViewSectionViewModel *sectionModel =[self.modelViewArray objectAtIndex:section];
+    id <HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:section];
     return sectionModel.configSectionHeaderHeight?sectionModel.configSectionHeaderHeight(section):0.01;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    HBTableViewSectionViewModel *sectionModel =[self.modelViewArray objectAtIndex:section];
+    id <HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:section];
     return sectionModel.configSectionFooterHeight?sectionModel.configSectionFooterHeight(section):0.01;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    HBTableViewSectionViewModel *sectionModel =[self.modelViewArray objectAtIndex:section];
-    UIView *sectionView =nil;
-    sectionView = sectionModel.configSectionHeaderView?sectionModel.configSectionHeaderView(section):[[UIView alloc] init];
-    if (self.configSectionHeaderData) {
-        self.configSectionHeaderData(section, sectionView, sectionModel.sectionHeaderData);
+    id <HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:section];
+    id<HBTableViewBaseViewProtocol> sectionView =nil;
+    sectionView = sectionModel.configSectionHeaderView?sectionModel.configSectionHeaderView(tableView,section):( id<HBTableViewBaseViewProtocol>)[[UIView alloc] init];
+    if (sectionModel.configSectionHeaderData) {
+        sectionModel.configSectionHeaderData(tableView, section, sectionView, sectionModel.sectionHeaderData);
     }
-    return sectionView;
+    return (UIView *)sectionView;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;{
-    HBTableViewSectionViewModel *footerModel =[self.modelViewArray objectAtIndex:section];
-    UIView *footerView =nil;
-    footerView = footerModel.configFooterView?footerModel.configFooterView(section):[[UIView alloc] init];
-    if (self.configSectionFooterData) {
-        self.configSectionFooterData(section, footerView, footerModel.sectionFooterData);
+    id <HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:section];
+    id<HBTableViewBaseViewProtocol> footerView =nil;
+    footerView = sectionModel.configFooterView?sectionModel.configFooterView(tableView,section):(id<HBTableViewBaseViewProtocol>)[[UIView alloc] init];
+    if (sectionModel.configSectionFooterData) {
+        sectionModel.configSectionFooterData(tableView, section, footerView, sectionModel.sectionFooterData);
+ 
     }
-    return footerView;
+    return (UIView *)footerView;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    HBTableViewSectionViewModel *sectionModel =[self.modelViewArray objectAtIndex:section];
+    id<HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:section];
     return sectionModel.rowDataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    HBTableViewSectionViewModel *sectionModel =[self.modelViewArray objectAtIndex:indexPath.section];
-    HBTableViewCellModel *cellModel =[sectionModel.rowDataArray objectAtIndex:indexPath.row];
+     
+    id<HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:indexPath.section];
+    id<HBTableViewCellModelViewProtocol> cellModel =[sectionModel.rowDataArray objectAtIndex:indexPath.row];
 
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellModel.className];
     if (!cell) {
@@ -80,21 +66,14 @@
             cell =[[NSBundle mainBundle] loadNibNamed:cellModel.className owner:nil options:nil][0];
          }else{
             cell = [[NSClassFromString(cellModel.className) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellModel.className];
-             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-             
          }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    cell.separatorInset = UIEdgeInsetsZero; 分割线从0位置开始
-     if ([cell isKindOfClass:[HBTableViewCell class]]){
-        HBTableViewCell *cellView = (HBTableViewCell *)cell;
-        [cellView updateWithCellData:cellModel.rowData];
-         if (self.configBlock){
-            self.configBlock(cell, cellModel.rowData);
-         }
-     }else if (self.configBlock) {
-         self.configBlock(cell, cellModel.rowData);
-     }
+ 
+    if (cellModel.configCellData) {
+        cellModel.configCellData((id<HBTableViewBaseCellProtocol>)cell, cellModel.rowData);
+    }
+ 
     return cell;
 }
 
@@ -106,32 +85,17 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HBTableViewSectionViewModel *sectionModel =[self.modelViewArray objectAtIndex:indexPath.section];
-    HBTableViewCellModel *rowModel =[sectionModel.rowDataArray objectAtIndex:indexPath.row];
-    if (self.didSelectRowAtIndexPath) {
-        self.didSelectRowAtIndexPath(tableView, indexPath,rowModel.rowData);
+    id<HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:indexPath.section];
+    id<HBTableViewCellModelViewProtocol> rowModel =[sectionModel.rowDataArray objectAtIndex:indexPath.row];
+    if (rowModel.didSelectRowAtIndexPath) {
+        rowModel.didSelectRowAtIndexPath(tableView, indexPath, rowModel);
     }
+ 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HBTableViewSectionViewModel *sectionModel =[self.modelViewArray objectAtIndex:indexPath.section];
-    HBTableViewCellModel *rowModel =[sectionModel.rowDataArray objectAtIndex:indexPath.row];
+    id<HBTableSectionModelViewProtocol> sectionModel =[self.modelViewArray objectAtIndex:indexPath.section];
+    id<HBTableViewCellModelViewProtocol> rowModel =[sectionModel.rowDataArray objectAtIndex:indexPath.row];
     return rowModel.configRowHeight?rowModel.configRowHeight(indexPath):0;
 }
-//UI
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (self.tableUIModel.willDisplayCell) {
-//        self.tableUIModel.willDisplayCell(tableView, cell, indexPath);
-//    }
-//}
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    if (self.tableUIModel.scrollOffset) {
-//        self.tableUIModel.scrollOffset(scrollView.contentOffset);
-//    }
-//}
-//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (self.tableUIModel.shouldHighlightRow) {
-//        self.tableUIModel.shouldHighlightRow(tableView, indexPath);
-//    }
-//    return YES;
-//}
+ 
 @end
