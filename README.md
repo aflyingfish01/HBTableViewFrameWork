@@ -48,11 +48,11 @@ viewcontroller中初始化
 }
 
 [self.tableViewList updateListWithModels:self.dataArray dataConfigBlock:^(id  _Nonnull cell, id  _Nonnull model) {
-        
+       //如果是集成于基类的cell 默认不需要实现
     } didSelectRowAtIndexPath:^(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath, id  _Nonnull rowData) {
-        STRONG_SELF;
-        HBshortElvesModel *model = [self.dataArray safeObjectAtIndex:indexPath.row];
-          [HBHttpTool postSSECode:model.stockCode exchange:model.exchange stockName:model.stockName  followId:nil securityType:model.securityType subType:nil viewController:self];
+       __strong __typeof(weakSelf)strongSelf = weakSelf;
+       //cell点击响应
+        
     }];
     
     tableView的代理协议都不需要写了
