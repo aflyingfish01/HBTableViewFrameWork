@@ -134,9 +134,34 @@ typedef  void(^didSelectRowAtIndexPath)(UITableView *tableView,NSIndexPath *inde
         
         sectionModel.sectionHeaderData = obj;
         sectionModel.sectionFooterData = obj;
-        [self requestTableDataArray:obj.rowArray];
-        [sectionModels addObject:sectionModel];
-    }];
+        [obj.rowArray enumerateObjectsUsingBlock:^(id <HBTableViewCellModelProtocol>  _Nonnull objRow, NSUInteger idx, BOOL * _Nonnull stop) {
+             
+                HBTableViewCellViewModel *cellModel = [[HBTableViewCellViewModel alloc] init];
+                [cellModel setClassName:objRow.cellReusable];
+                [cellModel setConfigRowHeight:^CGFloat(NSIndexPath *indexPath) {
+                    return objRow.rowHeight;
+                }];
+                [cellModel setIsNib:objRow.isNib];
+                [cellModel setConfigCellData:^(id<HBTableViewBaseCellProtocol> cell, id<HBTableViewCellModelProtocol> cellModel) {
+                    //绑定数据源
+                    if ([cell respondsToSelector:@selector(updateWithCellData:)]) {
+                        [cell updateWithCellData:cellModel];
+                    }
+                    //这个block是cel的回调 用来自定义
+                    if (self.configBlock) {
+                        self.configBlock(cell,cellModel);
+                    }
+                }];
+                [cellModel setDidSelectRowAtIndexPath:^(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath, id  _Nonnull rowData) {
+                           if (self.didSelectRowAtIndexPath) {
+                               self.didSelectRowAtIndexPath(tableView,indexPath,rowData);
+                           }
+                       }];
+                cellModel.rowData = objRow;
+                [sectionModel.rowDataArray addObject:cellModel];
+            }];
+            [sectionModels addObject:sectionModel];
+        }];
     return sectionModels;
 }
 

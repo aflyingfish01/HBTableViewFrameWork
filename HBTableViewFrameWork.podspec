@@ -1,7 +1,7 @@
  
 Pod::Spec.new do |s|
   s.name             = 'HBTableViewFrameWork'
-  s.version          = '0.1.4'
+  s.version          = '0.1.7'
   s.summary          = '快速搭建表格框架'
   s.description      = <<-DESC
                         快速搭建表格框架
