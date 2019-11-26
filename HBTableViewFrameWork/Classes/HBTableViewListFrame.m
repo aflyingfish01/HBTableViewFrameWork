@@ -134,24 +134,7 @@ typedef  void(^didSelectRowAtIndexPath)(UITableView *tableView,NSIndexPath *inde
         
         sectionModel.sectionHeaderData = obj;
         sectionModel.sectionFooterData = obj;
-        [obj.rowArray enumerateObjectsUsingBlock:^(id <HBTableViewCellModelProtocol>  _Nonnull objRow, NSUInteger idx, BOOL * _Nonnull stop) {
-         
-            HBTableViewCellViewModel *cellModel = [[HBTableViewCellViewModel alloc] init];
-            [cellModel setClassName:objRow.cellReusable];
-            [cellModel setConfigRowHeight:^CGFloat(NSIndexPath *indexPath) {
-                return objRow.rowHeight;
-            }];
-            [cellModel setIsNib:objRow.isNib];
-            [cellModel setConfigCellData:^(id<HBTableViewBaseCellProtocol> cell, id<HBTableViewCellModelProtocol> cellModel) {
-                //绑定数据源
-                if ([cell respondsToSelector:@selector(updateWithCellData:)]) {
-                    [cell updateWithCellData:cellModel];
-                }
-            }];
-            
-            cellModel.rowData = objRow;
-            [sectionModel.rowDataArray addObject:cellModel];
-        }];
+        [self requestTableDataArray:obj.rowArray];
         [sectionModels addObject:sectionModel];
     }];
     return sectionModels;
