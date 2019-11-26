@@ -68,28 +68,13 @@
     model2.itemName = @"第2个分区";
     model2.rowArray = self.dataArray;
     
-//    HBTableViewSectionModelClass *section = [[HBTableViewSectionModelClass alloc] init];
-//    section.rowArray = self.dataArray;
-    
     [self.tableViewListFrame updateListWithSectionModels:@[model,model1,model2] dataConfigBlock:^(id cell, id model) {
  
     } didSelectRowAtIndexPath:^(UITableView *tableView, NSIndexPath *indexPath, id rowData) {
         NSLog(@"分区 indexPath.secion %ld,行indexPath.row %ld",indexPath.section,indexPath.row);
     }];
     
-}
-
-//- (void)dataArrayFormart{
-//    NSMutableArray *array = [HBTestXIBModel requestTableDataSource:self.dataArray  rowHeight:150 className:@"HBXIBTableViewCell" isNib:YES ];
-//
-//    self.dataSource = [HBTableViewDataSource dataSourceViewModel:array dataConfigBlock:^(id cell, id model) {
-//
-//    } didSelectRowAtIndexPath:^(UITableView *tableView, NSIndexPath *indexPath, id rowData) {
-//        NSLog(@"=====分割线========\n%ld行",indexPath.row);
-//    }];
-//
-//
-//}
+} 
 #pragma mark - getters and setters
 - (UITableView *)tableView {
     if (!_tableView) {

@@ -342,7 +342,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HBTableViewFrameWork_Example/Pods-HBTableViewFrameWork_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HBTableViewFrameWork_Example/Pods-HBTableViewFrameWork_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/HBTableViewFrameWork/HBTableViewFrameWork.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
@@ -353,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HBTableViewFrameWork_Example/Pods-HBTableViewFrameWork_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HBTableViewFrameWork_Example/Pods-HBTableViewFrameWork_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C94AC2D3E5F930C8FFEC1F34 /* [CP] Check Pods Manifest.lock */ = {

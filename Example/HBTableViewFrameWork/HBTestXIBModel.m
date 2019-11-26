@@ -16,7 +16,7 @@
 
 
 - (CGFloat)rowHeight{
-    return 200.0;
+    return 100.0;
 }
 - (BOOL)isNib{
     return YES;
@@ -36,9 +36,9 @@
     return @"sectionHeaderView";
 }
 
-- (NSString *)viewHeaderClass{
-    return @"sectionHeaderView";
-}
+//- (NSString *)viewHeaderClass{
+//    return @"sectionHeaderView";
+//}
 
 
 - (CGFloat)sectionFooterHeight{
